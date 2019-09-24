@@ -1,0 +1,27 @@
+{{#partial "content"}}
+<div class="jumbotron text-center">
+    <h1>ANIMALS' STATUS RECORDS</h1>
+
+    <table class="table table-bordered">
+        <th scope="col">Animal ID</th>
+        <th scope="col">Ranger Name</th>
+        <th scope="col">Animal  Name</th>
+        <th scope="col">Animal Healthy</th>
+        <th scope="col">Animal Age</th>
+        <th scope="col">Location spotted</th>
+
+        #foreach ($track in $tracks)
+
+        <tr>
+            <td class="table-success">$track.getId()</td>
+            <td class="table-success">$track.getRangerName()</td>
+            <td class="table-success">$track.getAnimalName()</td>
+            <td class="table-success">$track.getHealth()</td>
+            <td class="table-success">$track.getAge()</td>
+            <td class="table-success">$track.getLocation()</td>
+        </tr>
+        #end
+    </table>
+</div>
+<a class="animated fadeInUp" href="/">Go Back</a>
+{{/partial}}
