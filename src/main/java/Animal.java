@@ -5,19 +5,19 @@ import java.util.List;
 public class Animal {
 
     private int id;
-    private String Rangername;
-    private String Animalname;
-    private String Health;
-    private String Age;
-    private String Location;
+    private String rangername;
+    private String animalname;
+    private String health;
+    private String age;
+    private String location;
 
     public Animal(int id, String rangername, String animalname, String health, String age, String location) {
         this.id = id;
-        Rangername = rangername;
-        Animalname = animalname;
-        Health = health;
-        Age = age;
-        Location = location;
+        this.rangername = rangername;
+        this.animalname = animalname;
+        this.health = health;
+        this.age = age;
+        this.location = location;
     }
 
     public int getId() {
@@ -25,26 +25,26 @@ public class Animal {
     }
 
     public String getRangername() {
-        return Rangername;
+        return rangername;
     }
 
     public String getAnimalname() {
-        return Animalname;
+        return animalname;
     }
 
     public String getHealth() {
-        return Health;
+        return health;
     }
 
     public String getAge() {
-        return Age;
+        return age;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
-    @Override
+        @Override
     public boolean equals(Object anotheranimal) {
         if (!(anotheranimal instanceof Animal)) {
             return false;
@@ -72,11 +72,11 @@ public class Animal {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animal (rangername ,animalname, health, age, location) VALUES (:rangername, :animalname , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
-                    .addParameter("rangername", Rangername)
-                    .addParameter("animalname", Animalname)
-                    .addParameter("health",Health)
-                    .addParameter("age", Age)
-                    .addParameter("location",Location)
+                    .addParameter("rangername", rangername)
+                    .addParameter("animalname", animalname)
+                    .addParameter("health",health)
+                    .addParameter("age", age)
+                    .addParameter("location",location)
                     .executeUpdate()
                     .getKey();
         }
