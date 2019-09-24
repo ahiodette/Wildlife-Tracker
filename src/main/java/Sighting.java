@@ -49,12 +49,12 @@ public class Sighting {
         if (!(anotherSighting instanceof Animal)) {
             return false;
         } else {
-            Sighting newsighting = (Sighting) anotherSighting;
-            return this.getRangerName().equals(newsighting.getRangerName()) &&
-                    this.getAnimalName() == newsighting.getAnimalName() &&
-                    this.getHealth() == newsighting.getHealth() &&
-                    this.getAge() == newsighting.getAge() &&
-                    this.getLocation() == newsighting.getLocation();
+            Sighting newSighting = (Sighting) anotherSighting;
+            return this.getRangerName().equals(newSighting.getRangerName()) &&
+                    this.getAnimalName() == newSighting.getAnimalName() &&
+                    this.getHealth() == newSighting.getHealth() &&
+                    this.getAge() == newSighting.getAge() &&
+                    this.getLocation() == newSighting.getLocation();
         }
     }
 
@@ -76,7 +76,6 @@ public class Sighting {
                     .addParameter("location", location)
                     .executeUpdate()
                     .getKey();
-
         }
     }
 }
