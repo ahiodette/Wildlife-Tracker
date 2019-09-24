@@ -5,16 +5,16 @@ import java.util.List;
 public class Animal {
 
     private int id;
-    private String rangername;
-    private String animalname;
+    private String rangerName;
+    private String animalName;
     private String health;
     private String age;
     private String location;
 
-    public Animal(int id, String rangername, String animalname, String health, String age, String location) {
+    public Animal(int id, String rangerName, String animalName, String health, String age, String location) {
         this.id = id;
-        this.rangername = rangername;
-        this.animalname = animalname;
+        this.rangerName = rangerName;
+        this.animalName = animalName;
         this.health = health;
         this.age = age;
         this.location = location;
@@ -24,12 +24,12 @@ public class Animal {
         return id;
     }
 
-    public String getRangername() {
-        return rangername;
+    public String getRangerName() {
+        return rangerName;
     }
 
-    public String getAnimalname() {
-        return animalname;
+    public String getAnimalName() {
+        return animalName;
     }
 
     public String getHealth() {
@@ -44,14 +44,14 @@ public class Animal {
         return location;
     }
 
-        @Override
+            @Override
     public boolean equals(Object anotheranimal) {
         if (!(anotheranimal instanceof Animal)) {
             return false;
         } else {
             Animal newAnimal = (Animal) anotheranimal;
-            return this.getRangername().equals(newAnimal.getRangername()) &&
-                    this.getAnimalname() == newAnimal.getAnimalname() &&
+            return this.getRangerName().equals(newAnimal.getRangerName()) &&
+                    this.getAnimalName() == newAnimal.getAnimalName() &&
                     this.getHealth() == newAnimal.getHealth()&&
                     this.getAge() == newAnimal.getAge() &&
                     this.getLocation() == newAnimal.getLocation();
@@ -70,10 +70,10 @@ public class Animal {
 
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animal (rangername ,animalname, health, age, location) VALUES (:rangername, :animalname , :health , :age , :location)";
+            String sql = "INSERT INTO animal (ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
-                    .addParameter("rangername", rangername)
-                    .addParameter("animalname", animalname)
+                    .addParameter("range_name", rangerName)
+                    .addParameter("animal_name", animalName)
                     .addParameter("health",health)
                     .addParameter("age", age)
                     .addParameter("location",location)
