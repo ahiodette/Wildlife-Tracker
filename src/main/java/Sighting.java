@@ -5,16 +5,16 @@ import java.util.List;
 public class Sighting {
 
     private int id;
-    private String rangername;
-    private String animalname;
+    private String rangerName;
+    private String animalName;
     private String health;
     private String age;
     private String location;
 
-    public Sighting(int id, String rangername, String animalname, String health, String age, String location) {
+    public Sighting(int id, String rangerName, String animalName, String health, String age, String location) {
         this.id = id;
-        this.rangername = rangername;
-        this.animalname = animalname;
+        this.rangerName = rangerName;
+        this.animalName = animalName;
         this.health = health;
         this.age = age;
         this.location = location;
@@ -24,12 +24,12 @@ public class Sighting {
         return id;
     }
 
-    public String getRangername() {
-        return rangername;
+    public String getRangerName() {
+        return rangerName;
     }
 
-    public String getAnimalname() {
-        return animalname;
+    public String getAnimalName() {
+        return animalName;
     }
 
     public String getHealth() {
@@ -44,14 +44,14 @@ public class Sighting {
         return location;
     }
 
-    @Override
+        @Override
     public boolean equals(Object anotherSighting) {
         if (!(anotherSighting instanceof Animal)) {
             return false;
         } else {
             Sighting newsighting = (Sighting) anotherSighting;
-            return this.getRangername().equals(newsighting.getRangername()) &&
-                    this.getAnimalname() == newsighting.getAnimalname() &&
+            return this.getRangerName().equals(newsighting.getRangerName()) &&
+                    this.getAnimalName() == newsighting.getAnimalName() &&
                     this.getHealth() == newsighting.getHealth() &&
                     this.getAge() == newsighting.getAge() &&
                     this.getLocation() == newsighting.getLocation();
@@ -69,8 +69,8 @@ public class Sighting {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sightings (ranger_name ,animal_name, health, age, location) VALUES (:rangername, :animalname , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
-                    .addParameter("ranger_name", rangername)
-                    .addParameter("animal_name", animalname)
+                    .addParameter("ranger_name", rangerName)
+                    .addParameter("animal_name", animalName)
                     .addParameter("health", health)
                     .addParameter("age", age)
                     .addParameter("location", location)
