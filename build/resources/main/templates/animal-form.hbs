@@ -1,13 +1,14 @@
 {{#partial "content"}}
 <h1>RECORD THE ANIMALS' STATUS</h1>
-<form action="/esuccess" method="post">
+<form action="/success" method="post">
     <label for="rname">Ranger name</label>
     <input id="rname" name="rangerName" type="text" class="form-control">
     <label for="name">Animal Name</label>
     <input id="name" name="animalName" type="text" class="form-control">
 <label for="health">Health</label>
     <select id="health" name="health">
-        <option>Ill</option>
+        <option>Healthy</option>
+        <option>Okay</option>
     </select>
     <label for="age">Age</label>
     <select id="age" name="age">
@@ -21,6 +22,7 @@
         <option>Zone B</option>
         <option>Zone C</option>
     </select> <br><br>
-    <button type="submit" class="btn btn-warning">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>
 {{/partial}}
+{{>layout.hbs}}
