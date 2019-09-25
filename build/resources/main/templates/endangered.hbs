@@ -1,6 +1,6 @@
 {{#partial "content"}}
 <div class="jumbotron text-center">
-    <h1>ANIMALS' STATUS RECORDS</h1>
+    <h1>ENDANGERED ANIMALS' SIGHTINGS RECORDS</h1>
 
     <table class="table table-bordered">
         <th scope="col">Animal ID</th>
@@ -13,12 +13,12 @@
         {{#each endangers}}
 
         <tr>
-            <td class="table-success">$track.getId()</td>
-            <td class="table-success">$track.getRangerName()</td>
-            <td class="table-success">$track.getAnimalName()</td>
-            <td class="table-success">$track.getHealth()</td>
-            <td class="table-success">$track.getAge()</td>
-            <td class="table-success">$track.getLocation()</td>
+            <td class="table-success">{{eid}}</td>
+            <td class="table-success">{{erangerName}}</td>
+            <td class="table-success">{{eanimalName}}</td>
+            <td class="table-success">{{ehealth}}</td>
+            <td class="table-success">{{eage}}</td>
+            <td class="table-success">{{elocation}}</td>
         </tr>
         {{/each}}
     </table>

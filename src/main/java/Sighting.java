@@ -4,57 +4,57 @@ import java.util.List;
 
 public class Sighting {
 
-    private int id;
-    private String rangerName;
-    private String animalName;
-    private String health;
-    private String age;
-    private String location;
+    private int eid;
+    private String erangerName;
+    private String eanimalName;
+    private String ehealth;
+    private String eage;
+    private String elocation;
 
-    public Sighting(int id, String rangerName, String animalName, String health, String age, String location) {
-        this.id = id;
-        this.rangerName = rangerName;
-        this.animalName = animalName;
-        this.health = health;
-        this.age = age;
-        this.location = location;
+    public Sighting(String erangerName, String eanimalName, String ehealth, String eage, String elocation) {
+        this.eid = eid;
+        this.erangerName = erangerName;
+        this.eanimalName = eanimalName;
+        this.ehealth = ehealth;
+        this.eage = eage;
+        this.elocation = elocation;
     }
 
-    public int getId() {
-        return id;
+    public int getEid() {
+        return eid;
     }
 
-    public String getRangerName() {
-        return rangerName;
+    public String getErangerName() {
+        return erangerName;
     }
 
-    public String getAnimalName() {
-        return animalName;
+    public String getEanimalName() {
+        return eanimalName;
     }
 
-    public String getHealth() {
-        return health;
+    public String getEhealth() {
+        return ehealth;
     }
 
-    public String getAge() {
-        return age;
+    public String getEage() {
+        return eage;
     }
 
-    public String getLocation() {
-        return location;
+    public String getElocation() {
+        return elocation;
     }
 
-        @Override
+            @Override
     public boolean equals(Object anotherSighting) {
         if (!(anotherSighting instanceof Animal)) {
             return false;
         } else {
             Sighting newSighting = (Sighting) anotherSighting;
-            return this.getRangerName().equals(newSighting.getRangerName()) &&
-                    this.getAnimalName() == newSighting.getAnimalName() &&
-                    this.getHealth() == newSighting.getHealth() &&
-                    this.getAge() == newSighting.getAge() &&
-                    this.getLocation() == newSighting.getLocation();
+            return this.getErangerName().equals(newSighting.getErangerName()) &&
+                    this.getEanimalName() == newSighting.getEanimalName() &&
+                    this.getEhealth() == newSighting.getEhealth() &&
+                    this.getEage() == newSighting.getEage() &&
+                    this.getElocation() == newSighting.getElocation();
         }
     }
 
@@ -68,12 +68,12 @@ public class Sighting {
     public void save() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sightings (ranger_name ,animal_name, health, age, location) VALUES (:rangername, :animalname , :health , :age , :location)";
-            this.id = (int) con.createQuery(sql, true)
-                    .addParameter("ranger_name", rangerName)
-                    .addParameter("animal_name", animalName)
-                    .addParameter("health", health)
-                    .addParameter("age", age)
-                    .addParameter("location", location)
+            this.eid = (int) con.createQuery(sql, true)
+                    .addParameter("ranger_name", erangerName)
+                    .addParameter("animal_name", eanimalName)
+                    .addParameter("health", ehealth)
+                    .addParameter("age", eage)
+                    .addParameter("location", elocation)
                     .executeUpdate()
                     .getKey();
         }

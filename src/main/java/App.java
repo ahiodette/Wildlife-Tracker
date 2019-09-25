@@ -46,14 +46,31 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         post("/animal-healthy", ((request, response) -> {
-            Map<String, Object> odette = new HashMap<>();
+            Map<String, Object> model = new HashMap<>();
             String rangerName = request.queryParams("rangerName");
             String animalName = request.queryParams("animalName");
             String health = request.queryParams("health");
             String age = request.queryParams("age");
             String location = request.queryParams("location");
             Animal record = new Animal( rangerName, animalName, health, age, location);
-            return new ModelAndView(record, "animals-records.hbs");
+
+            record.save();
+            model.put("templates","/templates/animal-form.hbs");
+            return new ModelAndView(model, "animals-records.hbs");
+        }), new HandlebarsTemplateEngine());
+
+        post("/animal-endanger", ((request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String erangerName = request.queryParams("erangerName");
+            String eanimalName = request.queryParams("eanimalName");
+            String ehealth = request.queryParams("ehealth");
+            String eage = request.queryParams("eage");
+            String elocation = request.queryParams("elocation");
+            Sighting danger = new Sighting( erangerName, eanimalName, ehealth, eage, elocation);
+
+            danger.save();
+            model.put("templates", "templates/endangered-form.hbs")
+            return new ModelAndView(model, "endangered.hbs");
         }), new HandlebarsTemplateEngine());
     }
 }

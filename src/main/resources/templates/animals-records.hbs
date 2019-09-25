@@ -10,18 +10,19 @@
     <th scope="col">Animal Age</th>
     <th scope="col">Location spotted</th>
 
-    #foreach ($track in $tracks)
+{{#each endangers}}
 
     <tr>
-        <td class="table-success">$track.getId()</td>
-        <td class="table-success">$track.getRangerName()</td>
-        <td class="table-success">$track.getAnimalName()</td>
-        <td class="table-success">$track.getHealth()</td>
-        <td class="table-success">$track.getAge()</td>
-        <td class="table-success">$track.getLocation()</td>
+        <td class="table-success">{{id}}</td>
+        <td class="table-success">{{rangerName}}</td>
+        <td class="table-success">{{animalName}}</td>
+        <td class="table-success">{{health}}</td>
+        <td class="table-success">{{age}}</td>
+        <td class="table-success">{{location}}</td>
     </tr>
-    #end
+{{/each}}
 </table>
 </div>
 <a class="animated fadeInUp" href="/">Go Back</a>
 {{/partial}}
+{{>layout.hbs}}
