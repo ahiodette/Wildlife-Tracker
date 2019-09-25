@@ -35,12 +35,12 @@ public class App {
             return new ModelAndView(model,"endangered-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/success", (request, response) -> {
+        post("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/endsuccess", (request, response) -> {
+        post("/endsucc", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
