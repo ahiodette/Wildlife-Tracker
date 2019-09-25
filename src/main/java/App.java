@@ -45,6 +45,16 @@ public class App {
             return new ModelAndView(model,"endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
+        post("/animal-healthy", ((request, response) -> {
+            Map<String, Object> odette = new HashMap<>();
+            String rangerName = request.queryParams("rangerName");
+            String animalName = request.queryParams("animalName");
+            String health = request.queryParams("health");
+            String age = request.queryParams("age");
+            String location = request.queryParams("location");
+            Animal record = new Animal( rangerName, animalName, health, age, location);
+            return new ModelAndView(record, "animals-records.hbs");
+        }), new HandlebarsTemplateEngine());
     }
 }
 

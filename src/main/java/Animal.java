@@ -11,7 +11,7 @@ public class Animal {
     private String age;
     private String location;
 
-    public Animal(int id, String rangerName, String animalName, String health, String age, String location) {
+    public Animal(String rangerName, String animalName, String health, String age, String location) {
         this.id = id;
         this.rangerName = rangerName;
         this.animalName = animalName;
