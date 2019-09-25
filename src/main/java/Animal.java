@@ -62,7 +62,7 @@ public class Animal {
     }
 
     public static List<Animal> all() {
-        String sql = "SELECT * FROM animal";
+        String sql = "SELECT * FROM animals";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Animal.class);
         }
@@ -70,7 +70,7 @@ public class Animal {
 
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animal (ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
+            String sql = "INSERT INTO animals (ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("range_name", rangerName)
                     .addParameter("animal_name", animalName)

@@ -1,7 +1,9 @@
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -27,6 +29,7 @@ public class App {
 
         get("/form", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+
             return new ModelAndView(model,"animal-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -35,17 +38,19 @@ public class App {
             return new ModelAndView(model,"endangered-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/succ", (request, response) -> {
+        get("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            model.put("animals", Animal.all());
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/endsucc", (request, response) -> {
+        get("/endsucc", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            model.put("endangers", Sighting.all());
             return new ModelAndView(model,"endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/animal-healthy", ((request, response) -> {
+        post("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String rangerName = request.queryParams("rangerName");
             String animalName = request.queryParams("animalName");
@@ -53,25 +58,66 @@ public class App {
             String age = request.queryParams("age");
             String location = request.queryParams("location");
             Animal record = new Animal( rangerName, animalName, health, age, location);
-
+//            request.session().attribute("animals", record);
             record.save();
-            model.put("templates","/templates/animal-form.hbs");
-            return new ModelAndView(model, "animals-records.hbs");
-        }), new HandlebarsTemplateEngine());
 
-        post("/animal-endanger", ((request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            String erangerName = request.queryParams("erangerName");
-            String eanimalName = request.queryParams("eanimalName");
-            String ehealth = request.queryParams("ehealth");
-            String eage = request.queryParams("eage");
-            String elocation = request.queryParams("elocation");
-            Sighting danger = new Sighting( erangerName, eanimalName, ehealth, eage, elocation);
+            model.put("record", "animals");
+            model.put("rangerName","rangerName");
+            model.put("animalName", "animalName");
+            model.put("health", "health");
+            model.put("age", "age");
+            model.put("location", "location");
 
-            danger.save();
-            model.put("templates", "templates/endangered-form.hbs")
-            return new ModelAndView(model, "endangered.hbs");
-        }), new HandlebarsTemplateEngine());
+//            model.put("animals",request.session().attribute("animals"));
+
+
+
+            return new ModelAndView(model,"success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+//        post("/animal", ((request, response) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            String rangerName = request.queryParams("rangerName");
+//            String animalName = request.queryParams("animalName");
+//            String health = request.queryParams("health");
+//            String age = request.queryParams("age");
+//            String location = request.queryParams("location");
+//            Animal animals = new Animal( rangerName, animalName, health, age, location);
+////            request.session().attribute("animals", record);
+//            animals.save();
+//            model.put("animals", "animals");
+//            model.put("rangerName","rangerName");
+//            model.put("animalName", "animalName");
+//            model.put("health", "health");
+//            model.put("age", "age");
+//            model.put("location", "location");
+//
+//            model.put("animals",request.session().attribute("animals"));
+//            return new ModelAndView(model, "animal-records.hbs");
+//        }), new HandlebarsTemplateEngine());
+
+//        get("/animaldisplay", (request, response) -> {
+//                    Map<String, Object> model = new HashMap<String, Object>();
+//                    model.put("animals", "animals");
+//                    model.put("animals", "Animal.all()");
+//                    return new ModelAndView(model, "animal-records.hbs");
+//                }, new HandlebarsTemplateEngine());
+
+//        post("/animal-endanger", ((request, response) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            String erangerName = request.queryParams("erangerName");
+//            String eanimalName = request.queryParams("eanimalName");
+//            String ehealth = request.queryParams("ehealth");
+//            String eage = request.queryParams("eage");
+//            String elocation = request.queryParams("elocation");
+//            Sighting danger = new Sighting( erangerName, eanimalName, ehealth, eage, elocation);
+//
+//            danger.save();
+//            model.put("templates", "templates/endangered-form.hbs");
+//            return new ModelAndView(model, "endangered.hbs");
+//        }), new HandlebarsTemplateEngine());
     }
 }
 

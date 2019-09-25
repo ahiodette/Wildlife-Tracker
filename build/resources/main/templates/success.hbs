@@ -1,10 +1,31 @@
 {{#partial "content"}}
-<div class="card" style="width: 18rem;">
-<img src="https://media.tenor.com/images/ca318adcef3e74ee90c41e09dd8ebdcb/tenor.gif" height=500 width=600 alt="">
+<div class="jumbotron text-center">
+<h1> HEALTHY ANIMALS' SIGHTINGS RECORDS</h1>
+
+<table class="table table-bordered">
+<!--    <th scope="col">Animal ID</th>-->
+    <th scope="col">Ranger Name</th>
+    <th scope="col">Animal  Name</th>
+    <th scope="col">Animal Healthy</th>
+    <th scope="col">Animal Age</th>
+    <th scope="col">Location spotted</th>
+{{#if animals}}
+{{#each animals}}
+
+    <tr>
+<!--        <td class="table-success">{{id}}</td>-->
+        <td class="table-success">{{rangerName}}</td>
+        <td class="table-success">{{animalName}}</td>
+        <td class="table-success">{{health}}</td>
+        <td class="table-success">{{age}}</td>
+        <td class="table-success">{{location}}</td>
+    </tr>
+{{/each}}
+{{else}}
+    <p>No animal is found</p>
+{{/if}}
+</table>
 </div>
-<div class="card-body">
-    <p class="card-text">Thank you!</p>
-    <a href="/animal-healthy" class="btn btn-success">Check healthy animals</a>
-</div>
+<a class="animated fadeInUp" href="/">Go Back</a>
 {{/partial}}
 {{>layout.hbs}}

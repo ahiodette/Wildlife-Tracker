@@ -1,11 +1,33 @@
 {{#partial "content"}}
-    <div class="card" style="width: 18rem;">
-        <img src="https://thumbs.gfycat.com/VariablePoliticalBurro.webp" height=500 width=500 alt="">
-    </div>
-    <div class="card-body">
-        <p class="card-text">Thank you!</p>
-        <a href="/animal-endanger" class="btn btn-warning">Check endangered animals</a>
-    </div>
+<div class="jumbotron text-center">
+    <h1>ENDANGERED ANIMALS' SIGHTINGS RECORDS</h1>
+
+    <table class="table table-bordered">
+        <th scope="col">Animal ID</th>
+        <th scope="col">Ranger Name</th>
+        <th scope="col">Animal  Name</th>
+        <th scope="col">Animal Healthy</th>
+        <th scope="col">Animal Age</th>
+        <th scope="col">Location spotted</th>
+{{#if endangers}}
+        {{#each endangers}}
+
+        <tr>
+            <td class="table-success">{{eid}}</td>
+            <td class="table-success">{{erangerName}}</td>
+            <td class="table-success">{{eanimalName}}</td>
+            <td class="table-success">{{ehealth}}</td>
+            <td class="table-success">{{eage}}</td>
+            <td class="table-success">{{elocation}}</td>
+        </tr>
+        {{/each}}
+    {{else}}
+
+    <p>No endanger animal is found</p>
+        {{/if}}
+    </table>
+</div>
+<a class="animated fadeInUp" href="/">Go Back</a>
 {{/partial}}
 
 {{>layout.hbs}}
