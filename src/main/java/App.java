@@ -70,6 +70,26 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        post("/endsucc", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            String erangerName = request.queryParams("erangerName");
+            String eanimalName = request.queryParams("eanimalName");
+            String ehealth = request.queryParams("ehealth");
+            String eage = request.queryParams("eage");
+            String elocation = request.queryParams("elocation");
+            Sighting danger = new Sighting(erangerName, eanimalName, ehealth, eage, elocation);
+
+            model.put("danger", "endangers");
+            model.put("erangerName", "erangerName");
+            model.put("eanimalName", "eanimalName");
+            model.put("ehealth", "ehealth");
+            model.put("eage", "eage");
+            model.put("elocation", "elocation");
+//           danger.save();
+            return new ModelAndView(model, "endsuccess.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }
