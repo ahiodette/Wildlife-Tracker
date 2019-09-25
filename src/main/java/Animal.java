@@ -72,6 +72,7 @@ public class Animal {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
+
                     .addParameter("range_name", rangerName)
                     .addParameter("animal_name", animalName)
                     .addParameter("health",health)
