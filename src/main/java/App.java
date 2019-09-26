@@ -79,17 +79,6 @@ public class App {
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/succ", (request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            model.put("allAnimals", Animal.all());
-//            return new ModelAndView(model, "success.hbs");
-//        }, new HandlebarsTemplateEngine());
-
-//        get("/succ", (request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            List<Animal> allAnimals =
-//        });
-
         get("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Animal> animals = Animal.all();
@@ -103,12 +92,6 @@ public class App {
             model.put("endangers", endangers);
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
-
-
-
-
-
-
     }
 }
 
