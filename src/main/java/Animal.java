@@ -4,45 +4,47 @@ import java.util.List;
 
 public class Animal {
 
-    private int id;
-    private String rangerName;
-    private String animalName;
-    private String health;
-    private String age;
-    private String location;
+    public int id;
+    public String rangerName;
+    public String animalName;
+    public String health;
+    public String age;
+    public String location;
 
     public Animal(String rangerName, String animalName, String health, String age, String location) {
-        this.id = id;
+
         this.rangerName = rangerName;
         this.animalName = animalName;
         this.health = health;
         this.age = age;
         this.location = location;
+
+
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getRangerName() {
-        return rangerName;
-    }
-
-    public String getAnimalName() {
-        return animalName;
-    }
-
-    public String getHealth() {
-        return health;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public String getLocation() {
-        return location;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getRangerName() {
+//        return rangerName;
+//    }
+//
+//    public String getAnimalName() {
+//        return animalName;
+//    }
+//
+//    public String getHealth() {
+//        return health;
+//    }
+//
+//    public String getAge() {
+//        return age;
+//    }
+//
+//    public String getLocation() {
+//        return location;
+//    }
 
             @Override
     public boolean equals(Object anotheranimal) {
@@ -50,11 +52,11 @@ public class Animal {
             return false;
         } else {
             Animal newAnimal = (Animal) anotheranimal;
-            return this.getRangerName().equals(newAnimal.getRangerName()) &&
-                    this.getAnimalName() == newAnimal.getAnimalName() &&
-                    this.getHealth() == newAnimal.getHealth()&&
-                    this.getAge() == newAnimal.getAge() &&
-                    this.getLocation() == newAnimal.getLocation();
+            return this.rangerName.equals(newAnimal.rangerName) &&
+                    this.animalName == newAnimal.animalName &&
+                    this.health == newAnimal.health&&
+                    this.age == newAnimal.age &&
+                    this.location == newAnimal.location;
 
 
 
@@ -70,14 +72,13 @@ public class Animal {
 
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
+            String sql = "INSERT INTO animals(ranger_name ,animal_name, health, age, location) VALUES (:rangerName, :animalName , :health , :age , :location)";
             this.id = (int) con.createQuery(sql, true)
-
-                    .addParameter("range_name", rangerName)
-                    .addParameter("animal_name", animalName)
-                    .addParameter("health",health)
-                    .addParameter("age", age)
-                    .addParameter("location",location)
+                    .addParameter("rangerName", this.rangerName)
+                    .addParameter("animalName", this.animalName)
+                    .addParameter("health", this.health)
+                    .addParameter("age", this.age)
+                    .addParameter("location", this.location)
                     .executeUpdate()
                     .getKey();
         }

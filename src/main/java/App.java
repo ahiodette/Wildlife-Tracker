@@ -33,22 +33,6 @@ public class App {
             return new ModelAndView(model, "animal-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/eform", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "endangered-form.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        get("/succ", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("animals", Animal.all());
-            return new ModelAndView(model, "success.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        get("/endsucc", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("endangers", Sighting.all());
-            return new ModelAndView(model, "endsuccess.hbs");
-        }, new HandlebarsTemplateEngine());
 
         post("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -60,14 +44,20 @@ public class App {
             String location = request.queryParams("location");
             Animal record = new Animal(rangerName, animalName, health, age, location);
 
-            model.put("record", "animals");
-            model.put("rangerName", "rangerName");
-            model.put("animalName", "animalName");
-            model.put("health", "health");
-            model.put("age", "age");
-            model.put("location", "location");
-//            record.save();
+//            model.put("record", "animals");
+            model.put("ranger_name", rangerName);
+            model.put("animal_name", animalName);
+            model.put("health", health);
+            model.put("age", age);
+            model.put("location", location);
+            record.save();
             return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/eform", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "endangered-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/endsucc", (request, response) -> {
@@ -80,15 +70,43 @@ public class App {
             String elocation = request.queryParams("elocation");
             Sighting danger = new Sighting(erangerName, eanimalName, ehealth, eage, elocation);
 
-            model.put("danger", "endangers");
-            model.put("erangerName", "erangerName");
-            model.put("eanimalName", "eanimalName");
-            model.put("ehealth", "ehealth");
-            model.put("eage", "eage");
-            model.put("elocation", "elocation");
-//           danger.save();
+            model.put("ranger_name", erangerName);
+            model.put("animal_name", eanimalName);
+            model.put("health", ehealth);
+            model.put("age", eage);
+            model.put("location", elocation);
+            danger.save();
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
+
+//        get("/succ", (request, response) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            model.put("allAnimals", Animal.all());
+//            return new ModelAndView(model, "success.hbs");
+//        }, new HandlebarsTemplateEngine());
+
+//        get("/succ", (request, response) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            List<Animal> allAnimals =
+//        });
+
+        get("/succ", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Animal> animals = Animal.all();
+            model.put("animals", animals);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/endsucc", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            model.put("endangers", Sighting.all());
+            return new ModelAndView(model, "endsuccess.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
 
 
     }
