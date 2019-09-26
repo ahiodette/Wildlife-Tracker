@@ -99,8 +99,8 @@ public class App {
 
         get("/endsucc", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-
-            model.put("endangers", Sighting.all());
+            List<Sighting> endangers = Sighting.all();
+            model.put("endangers", endangers);
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
