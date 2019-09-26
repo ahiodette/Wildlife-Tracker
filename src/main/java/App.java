@@ -44,7 +44,7 @@ public class App {
             String location = request.queryParams("location");
             Animal record = new Animal(rangerName, animalName, health, age, location);
 
-//            model.put("record", "animals");
+
             model.put("ranger_name", rangerName);
             model.put("animal_name", animalName);
             model.put("health", health);
