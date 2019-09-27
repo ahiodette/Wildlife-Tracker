@@ -1,5 +1,5 @@
 # Wildlife-Tracker
-An app for the forest service to track animals for an environmental impact study
+An app for the forest service to track animals for an environmental impact study.
 ### Author: 
 **Odette Ahishakiye** on September 25th, 2019.
 
@@ -25,7 +25,7 @@ The user can not see the whole list of previously recorded animals unless he/she
 
 
 ## Support and Contact details
-In case you may need any support about this app, do not hesitate to contact the developer on ahiode6@gmail.com
+In case you may need any support about this app, do not hesitate to contact the developer on ahiode6@gmail.com and 
 [linkedIn](https://www.linkedin.com/in/odette-ahishakiye-096a39188/)
 
 ## Licence
