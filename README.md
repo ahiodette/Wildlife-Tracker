@@ -21,6 +21,13 @@ The **Wildlife-tracker app** isdesigned to help in tracking the health statuses 
         * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
 ## Known bugs
+The user can not see the whole list of previously recorded animals unless he/she goes through the database, but that issue will be resolved ASAP!
+
 
 ## Support and Contact details
 In case you may need any support about this app, do not hesitate to contact the developer on ahiode6@gmail.com
+[linkedIn](https://www.linkedin.com/in/odette-ahishakiye-096a39188/)
+
+## Licence
+
+Copyright (c)2019 Odette Ahishakiye
