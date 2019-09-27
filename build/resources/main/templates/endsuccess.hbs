@@ -2,40 +2,47 @@
 <div class="container text-center">
     <img src="https://media.tenor.com/images/ca318adcef3e74ee90c41e09dd8ebdcb/tenor.gif" height=50 width=60 alt="">
     <h1>ENDANGERED ANIMALS' SIGHTINGS RECORDS</h1>
-
-    {{ranger_name}}
-    {{animal_name}}
-    {{health}}
-    {{age}}
-    {{location}}
-
-    <table class="table table-bordered">
-        <th scope="col">Animal ID</th>
-        <th scope="col">Ranger Name</th>
-        <th scope="col">Animal  Name</th>
-        <th scope="col">Animal Healthy</th>
-        <th scope="col">Animal Age</th>
-        <th scope="col">Location</th>
-{{#if endangers}}
-        {{#each endangers}}
-
-        <tr>
-<!--            <td class="table-success">{{eid}}</td>-->
-            <td class="table-success">{{ranger_name}}</td>
-            <td class="table-success">{{animal_name}}</td>
-            <td class="table-success">{{health}}</td>
-            <td class="table-success">{{age}}</td>
-            <td class="table-success">{{location}}</td>
-        </tr>
-        {{/each}}
-    {{else}}
-
-    <p>No endanger animal is found</p>
-        {{/if}}
-    </table>
 </div>
-<a class="btn btn-warning stretched-link" href="/">Back</a>
-<a class="btn btn-success stretched-link" href="/details">List all animals</a>
+    <div class="container">
+        <div class="row" style="font-size: 2em;">
+            <div class="col-sm-2">
+                Ranger Name
+            </div>
+            <div class="col-sm-2">
+                Animal  Name
+            </div>
+            <div class="col-sm-2">
+                Animal Healthy
+            </div>
+            <div class="col-sm-2">
+                Animal Age
+            </div>
+            <div class="col-sm-2">
+                Location
+            </div>
+        </div>
+        <hr >
+        <div class="row">
+            <div class="col-sm-2">
+                {{ranger_name}}
+            </div>
+            <div class="col-sm-2">
+                {{animal_name}}
+            </div>
+            <div class="col-sm-2">
+                {{health}}
+            </div>
+            <div class="col-sm-2">
+                {{age}}
+            </div>
+            <div class="col-sm-2">
+                {{location}}
+            </div>
+        </div> <br><br>
+            <a class="btn btn-warning stretched-link" href="/">Back</a>
+            <a class="btn btn-warning stretched-link" href="/details">List all animals</a>
+</div>
+</div>
 {{/partial}}
 
 {{>layout.hbs}}
