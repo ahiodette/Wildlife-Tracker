@@ -11,15 +11,15 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-//        ProcessBuilder process = new ProcessBuilder();
-//        Integer port;
-//
-//        if (process.environment().get("PORT") != null) {
-//            port = Integer.parseInt(process.environment().get("PORT"));
-//        } else {
-//            port = 4567;
-//        }
-//        port(port);
+        ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            port = 4567;
+        }
+        port(port);
 
 
         get("/", (request, response) -> {
@@ -43,8 +43,6 @@ public class App {
             String age = request.queryParams("age");
             String location = request.queryParams("location");
             Animal record = new Animal(rangerName, animalName, health, age, location);
-
-
             model.put("ranger_name", rangerName);
             model.put("animal_name", animalName);
             model.put("health", health);
@@ -69,7 +67,6 @@ public class App {
             String eage = request.queryParams("eage");
             String elocation = request.queryParams("elocation");
             Sighting danger = new Sighting(erangerName, eanimalName, ehealth, eage, elocation);
-
             model.put("ranger_name", erangerName);
             model.put("animal_name", eanimalName);
             model.put("health", ehealth);
@@ -82,6 +79,7 @@ public class App {
         get("/succ", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Animal> animals = Animal.all();
+            System.out.println(animals);
             model.put("animals", animals);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -92,6 +90,27 @@ public class App {
             model.put("endangers", endangers);
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+        get("/details", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+
+            return new ModelAndView(model, "details.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        post("/details", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Sighting> endangers = Sighting.all();
+            List<Animal> animals = Animal.all();
+            model.put("animals", animals);
+            model.put("endangers", endangers);
+            return new ModelAndView(model, "details.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
     }
+
 }
 

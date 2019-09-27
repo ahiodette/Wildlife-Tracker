@@ -1,31 +1,52 @@
 {{#partial "content"}}
-<div class="jumbotron text-center">
-<h1> HEALTHY ANIMALS' SIGHTINGS RECORDS</h1>
 
-<table class="table table-bordered">
-<!--    <th scope="col">Animal ID</th>-->
-    <th scope="col">Ranger Name</th>
-    <th scope="col">Animal  Name</th>
-    <th scope="col">Animal Healthy</th>
-    <th scope="col">Animal Age</th>
-    <th scope="col">Location</th>
-{{#if animals}}
-{{#each animals}}
+<div class="container">
+    <img src="https://media.tenor.com/images/ca318adcef3e74ee90c41e09dd8ebdcb/tenor.gif" height=50 width=60 alt="">
+<h1 class="text-center"> HEALTHY ANIMALS' SIGHTINGS RECORDS</h1><br><br>
 
-    <tr>
-<!--        <td class="table-success">{{id}}</td>-->
-        <td class="table-success">{{rangerName}}</td>
-        <td class="table-success">{{animalName}}</td>
-        <td class="table-success">{{health}}</td>
-        <td class="table-success">{{age}}</td>
-        <td class="table-success">{{location}}</td>
-    </tr>
-{{/each}}
-{{else}}
-    <p>No animal is found</p>
-{{/if}}
-</table>
-</div>
+<div class="container">
+    <div class="row" style="font-size: 2em;">
+        <div class="col-sm-2">
+            Ranger Name
+        </div>
+        <div class="col-sm-2">
+            Animal  Name
+        </div>
+        <div class="col-sm-2">
+            Animal Healthy
+        </div>
+        <div class="col-sm-2">
+            Animal Age
+        </div>
+        <div class="col-sm-2">
+            Location
+        </div>
+    </div>
+<hr >
+    <div class="row">
+            <div class="col-sm-2">
+                {{ranger_name}}
+            </div>
+            <div class="col-sm-2">
+                {{animal_name}}
+            </div>
+            <div class="col-sm-2">
+                {{health}}
+            </div>
+            <div class="col-sm-2">
+                {{age}}
+            </div>
+            <div class="col-sm-2">
+                {{location}}
+            </div>
+        </div> <br><br>
+
+
+
 <a class="btn btn-success stretched-link" href="/">Back</a>
+    <a class="btn btn-success stretched-link" href="/details">List all animals</a>
+</div>
+
+</div>
 {{/partial}}
 {{>layout.hbs}}

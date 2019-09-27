@@ -1,6 +1,13 @@
 {{#partial "content"}}
-<div class="jumbotron text-center">
+<div class="container text-center">
+    <img src="https://media.tenor.com/images/ca318adcef3e74ee90c41e09dd8ebdcb/tenor.gif" height=50 width=60 alt="">
     <h1>ENDANGERED ANIMALS' SIGHTINGS RECORDS</h1>
+
+    {{ranger_name}}
+    {{animal_name}}
+    {{health}}
+    {{age}}
+    {{location}}
 
     <table class="table table-bordered">
         <th scope="col">Animal ID</th>
@@ -13,12 +20,12 @@
         {{#each endangers}}
 
         <tr>
-            <td class="table-success">{{eid}}</td>
-            <td class="table-success">{{erangerName}}</td>
-            <td class="table-success">{{eanimalName}}</td>
-            <td class="table-success">{{ehealth}}</td>
-            <td class="table-success">{{eage}}</td>
-            <td class="table-success">{{elocation}}</td>
+<!--            <td class="table-success">{{eid}}</td>-->
+            <td class="table-success">{{ranger_name}}</td>
+            <td class="table-success">{{animal_name}}</td>
+            <td class="table-success">{{health}}</td>
+            <td class="table-success">{{age}}</td>
+            <td class="table-success">{{location}}</td>
         </tr>
         {{/each}}
     {{else}}
@@ -28,6 +35,7 @@
     </table>
 </div>
 <a class="btn btn-warning stretched-link" href="/">Back</a>
+<a class="btn btn-success stretched-link" href="/details">List all animals</a>
 {{/partial}}
 
 {{>layout.hbs}}

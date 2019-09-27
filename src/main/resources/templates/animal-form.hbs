@@ -1,5 +1,6 @@
 {{#partial "content"}}
-<h1>RECORD THE ANIMALS' STATUS</h1>
+<h1 class="text-center">RECORD THE ANIMALS' STATUS</h1>
+<div class="container">
 <form action="/succ" method="post" class="form">
     <label for="rname">Ranger name</label><br>
     <input id="rangerName" name="rangerName" type="text" class="form-control"><br>
@@ -22,7 +23,8 @@
         <option>Zone B</option>
         <option>Zone C</option>
     </select> <br><br>
-    <a href="/animal"><button type="submit" class="btn btn-success">Submit</button></a>
+   <button type="submit" class="btn btn-success">Submit</button>
 </form>
+</div>
 {{/partial}}
 {{>layout.hbs}}

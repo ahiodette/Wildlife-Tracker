@@ -1,0 +1,65 @@
+{{#partial "content"}}
+    <div class="container text-center">
+        <h1>ENDANGERED ANIMALS' SIGHTINGS RECORDS</h1>
+
+        {{ranger_name}}
+        {{animal_name}}
+        {{health}}
+        {{age}}
+        {{location}}
+
+        <table class="table table-bordered">
+            <th class="table-warning">Animal ID</th>
+            <th class="table-warning">Ranger Name</th>
+            <th class="table-warning">Animal  Name</th>
+            <th class="table-warning">Animal Healthy</th>
+            <th class="table-warning">Animal Age</th>
+            <th class="table-warning">Location</th>
+            {{#if endangers}}
+                {{#each endangers}}
+
+                    <tr>
+                        <!--            <td class="table-success">{{eid}}</td>-->
+                        <td class="table-success">{{ranger_name}}</td>
+                        <td class="table-success">{{animal_name}}</td>
+                        <td class="table-success">{{health}}</td>
+                        <td class="table-success">{{age}}</td>
+                        <td class="table-success">{{location}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+
+                <p>No endangered animal recors is found</p>
+            {{/if}}
+        </table><br><br>
+        <h1>HEALTHY ANIMALS' SIGHTINGS RECORDS</h1>
+        <table class="table table-bordered">
+            <th class="table-success">Animal ID</th>
+            <th class="table-success">Ranger Name</th>
+            <th class="table-success">Animal  Name</th>
+            <th class="table-success">Animal Healthy</th>
+            <th class="table-success">Animal Age</th>
+            <th class="table-success">Location</th>
+            {{#if animals}}
+                {{#each animals}}
+
+                    <tr>
+                        <!--            <td class="table-success">{{eid}}</td>-->
+                        <td class="table-success">{{ranger_name}}</td>
+                        <td class="table-success">{{animal_name}}</td>
+                        <td class="table-success">{{health}}</td>
+                        <td class="table-success">{{age}}</td>
+                        <td class="table-success">{{location}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+
+                <p>No animal record is found</p>
+            {{/if}}
+        </table>
+    </div>
+    <a class="btn btn-warning stretched-link" href="/">Back</a>
+
+{{/partial}}
+
+{{>layout.hbs}}
