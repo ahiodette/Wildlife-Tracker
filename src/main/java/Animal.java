@@ -22,29 +22,6 @@ public class Animal {
 
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getRangerName() {
-//        return rangerName;
-//    }
-//
-//    public String getAnimalName() {
-//        return animalName;
-//    }
-//
-//    public String getHealth() {
-//        return health;
-//    }
-//
-//    public String getAge() {
-//        return age;
-//    }
-//
-//    public String getLocation() {
-//        return location;
-//    }
 
             @Override
     public boolean equals(Object anotheranimal) {

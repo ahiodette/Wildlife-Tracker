@@ -19,9 +19,9 @@
                 {{#each endangers}}
 
                     <tr>
-                        <!--            <td class="table-success">{{eid}}</td>-->
-                        <td class="table-success">{{ranger_name}}</td>
-                        <td class="table-success">{{animal_name}}</td>
+
+                        <td class="table-success">{{rangerName}}</td>
+                        <td class="table-success">{{animalName}}</td>
                         <td class="table-success">{{health}}</td>
                         <td class="table-success">{{age}}</td>
                         <td class="table-success">{{location}}</td>
@@ -45,8 +45,8 @@
 
                     <tr>
                         <!--            <td class="table-success">{{eid}}</td>-->
-                        <td class="table-success">{{ranger_name}}</td>
-                        <td class="table-success">{{animal_name}}</td>
+                        <td class="table-success">{{rangerName}}</td>
+                        <td class="table-success">{{animalName}}</td>
                         <td class="table-success">{{health}}</td>
                         <td class="table-success">{{age}}</td>
                         <td class="table-success">{{location}}</td>
@@ -57,8 +57,10 @@
                 <p>No animal record is found</p>
             {{/if}}
         </table>
+
+        <a class="btn btn-warning stretched-link" href="/">Back</a><br>
     </div>
-    <a class="btn btn-warning stretched-link" href="/">Back</a>
+
 
 {{/partial}}
 

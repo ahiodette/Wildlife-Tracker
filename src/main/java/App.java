@@ -48,6 +48,7 @@ public class App {
             model.put("health", health);
             model.put("age", age);
             model.put("location", location);
+            model.put("record",record);
             record.save();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -72,6 +73,7 @@ public class App {
             model.put("health", ehealth);
             model.put("age", eage);
             model.put("location", elocation);
+            model.put("danger" ,danger);
             danger.save();
             return new ModelAndView(model, "endsuccess.hbs");
         }, new HandlebarsTemplateEngine());
