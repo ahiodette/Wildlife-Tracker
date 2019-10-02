@@ -104,8 +104,8 @@ public class App {
         post("/details", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Sighting> endangers = Sighting.all();
-            List<Animal> animals = Animal.all();
-            model.put("animals", animals);
+            List<Animal> animal = Animal.all();
+            model.put("animal", animal);
             model.put("endangers", endangers);
             return new ModelAndView(model, "details.hbs");
         }, new HandlebarsTemplateEngine());

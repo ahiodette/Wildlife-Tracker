@@ -24,6 +24,8 @@
     </div>
     <hr >
 
+    {{#if animal}}
+    {{#each animal}}
     <div class="row">
             <div class="col-sm-2">
                 {{ranger_name}}
@@ -42,7 +44,8 @@
             </div>
         </div> <br><br>
 
-
+    {{/each}}
+{{/if}}
 
 <a class="btn btn-success stretched-link" href="/">Back</a>
     <a class="btn btn-success stretched-link" href="/details">List all animals</a>
